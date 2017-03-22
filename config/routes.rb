@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+
+  root "welcome#index"
+  # get '/' => "welcome#index", as: 'root'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
-  resources :users, controller: "clearance/users", only: [:create] do
+  resources :users, controller: "users", only: [:index, :show, :delete, :edit, :update, :create] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
@@ -11,19 +15,6 @@ Rails.application.routes.draw do
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-#
-# Blog::Application.routes.draw do
-#   constraints Clearance::Constraints::SignedIn.new { |user| user.admin? } do
-#     root to: "admin/dashboards#show", as: :admin_root
-#   end
-#
-#   constraints Clearance::Constraints::SignedIn.new do
-#     root to: "dashboards#show", as: :signed_in_root
-#   end
-#
-#   constraints Clearance::Constraints::SignedOut.new do
-#     root to: "marketing#index"
-#   end
-# end
