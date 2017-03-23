@@ -1,0 +1,18 @@
+<h1> My Listings </h1>
+
+<table>
+  <% @listings.each do |l| %>
+    <tr>
+      <td> <%= l.title%> </td>
+      <td> <%= l.address %> </td>
+      <td> <%= l.pax %> </td>
+      <!-- to find the current_user and then the listing id, current_user is auto defined in rails -->
+      <td> <%= link_to "Edit", edit_user_listing_path(current_user, l.id) %> </td>
+      <!-- to make it to the method delete, data is to have the pop out box with the message -->
+      <td> <%= link_to "Delete", user_listing_path(current_user, l.id), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+    </tr>
+  <% end %>
+</table>
+
+
+<p>Listing#index</p>

@@ -1,2 +1,20 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edit your profile here</h1>
+
+<%= form_for @user do |u| %>
+  <p>
+    <%= u.label "Firstname: " %>
+    <%= u.text_field :firstname %><br>
+    <%= u.label "Lastname: " %>
+    <%= u.text_field :lastname %><br>
+    <%= u.label "email: " %>
+    <%= u.text_field :email %><br>
+  </p>
+
+  <p>
+    <%= u.submit "Submit!" %>
+  </p>
+<% end %>
+
+<p>Users#edit</p>
+
+<!-- why cannot user render 'form' ? -->

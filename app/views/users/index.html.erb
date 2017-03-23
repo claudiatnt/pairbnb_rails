@@ -1,2 +1,16 @@
-<h1>Users#index</h1>
+<h1> All Listings </h1>
+<table>
+  <% @user.each do |u| %>
+    <tr>
+      <td> <%= u.firstname %> <%= u.lastname %> </td>
+      <td> <%= u.email %> </td>
+      <td> <%= link_to "Listings", user_listings_path(u) %> </td>
+      <td> <%= link_to "Delete", user_path(u), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+    </tr>
+  <% end %>
+</table>
+
+<p>Users#index</p>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<!-- anyone also can view the listing and edit, how to make it only that user can edit their own listing? -->
