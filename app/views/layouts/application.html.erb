@@ -9,15 +9,19 @@
     <% if signed_in? -%>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
     <% else -%>
+<!-- the t translate to the user's language by defaut, is a rails ways -->
       <%= link_to t(".sign_in"), sign_in_path %>
     <% end -%>
   </div>
 
+  <%= button_to ("Back"),  root_path, method: :get %>
+  
   <div id="flash">
     <% flash.each do |key, value| -%>
       <div id="flash_<%= key %>"><%=h value %></div>
     <% end %>
   </div>
+<!-- make it a button for 'Back', method by default is POST, so change the method to get -->
 
   <%= yield %>
 </body>

@@ -1,0 +1,16 @@
+<p>Key in the details of your listings </p>
+
+<%= form_for @listing do |l| %>
+  <p>
+    <%= l.label "Title: " %>
+    <%= l.text_field :title %><br>
+    <%= l.label "Address: " %>
+    <%= l.text_field :address %><br>
+    <%= l.label "Pax Number: " %>
+    <%= l.text_field :pax %><br>
+  </p>
+
+  <p>
+    <%= l.submit "Submit Listing!" %>
+  </p>
+<% end %>
