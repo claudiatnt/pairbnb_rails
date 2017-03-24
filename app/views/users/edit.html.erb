@@ -1,20 +1,8 @@
 <h1>Edit your profile here</h1>
-
-<%= form_for @user do |u| %>
-  <p>
-    <%= u.label "Firstname: " %>
-    <%= u.text_field :firstname %><br>
-    <%= u.label "Lastname: " %>
-    <%= u.text_field :lastname %><br>
-    <%= u.label "email: " %>
-    <%= u.text_field :email %><br>
-  </p>
-
-  <p>
-    <%= u.submit "Submit!" %>
-  </p>
+<!-- need to put form_for and also render partial & object to render the _form.html -->
+<!-- either use form_for in edit/new.html or in the _form.html for the render form to work -->
+<%= form_for @user do |form| %>
+  <%= render partial: 'form', object: form %>
+  <p> terms and conditions </p>
 <% end %>
-
 <p>Users#edit</p>
-
-<!-- why cannot user render 'form' ? -->

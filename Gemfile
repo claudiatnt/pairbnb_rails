@@ -25,6 +25,7 @@ gem 'clearance'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'faker'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
