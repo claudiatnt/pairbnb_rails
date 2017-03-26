@@ -3,4 +3,7 @@ class Listing < ApplicationRecord
   validates :address, presence: true
   validates :pax, presence: true
   belongs_to :user
+  mount_uploaders :photos, PhotoUploader
+  serialize :photos, Array
+
 end

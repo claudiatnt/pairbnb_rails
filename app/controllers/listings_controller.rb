@@ -53,6 +53,6 @@ class ListingsController < ApplicationController
 # strong params to prevent hacker hack into your system
 private
   def listing_params
-    params.require(:listing).permit(:title, :address, :pax)
+    params.require(:listing).permit(:title, :address, :pax, {photos: []})
   end
 end

@@ -3,6 +3,7 @@
 <!-- either use form_for in edit/new.html or in the _form.html for the render form to work -->
 <%= form_for @user do |form| %>
   <%= render partial: 'form', object: form %>
+  <%= form.submit "Update Profile!" %>
   <p> terms and conditions </p>
 <% end %>
 <p>Users#edit</p>

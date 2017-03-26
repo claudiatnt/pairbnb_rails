@@ -1,16 +1,29 @@
 <p>Key in the details of your listings </p>
 
-<%= form_for @listing do |l| %>
+<%= form_for @listing do |form| %>
   <p>
-    <%= l.label "Title: " %>
-    <%= l.text_field :title %><br>
-    <%= l.label "Address: " %>
-    <%= l.text_field :address %><br>
-    <%= l.label "Pax Number: " %>
-    <%= l.text_field :pax %><br>
+    <div>
+      <%= form.label "Title: " %>
+      <%= form.text_field :title %>
+    </div>
+    <br>
+    <div>
+      <%= form.label "Address: " %>
+      <%= form.text_field :address %>
+    </div>
+    <br>
+    <div>
+      <%= form.label "Pax Number: " %>
+      <%= form.text_field :pax %>
+    </div>
+    <br>
+    <div>
+      <%= form.label "Photos: " %>
+      <%= form.file_field :photos, multiple: true %>
+    </div>
   </p>
 
   <p>
-    <%= l.submit "Submit Listing!" %>
+    <%= form.submit "Submit Listing!" %>
   </p>
 <% end %>
