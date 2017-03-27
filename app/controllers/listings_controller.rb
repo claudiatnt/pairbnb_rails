@@ -45,7 +45,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @listing = Listing.find(params[:id]) # find the users/user_id/listings/:id
     @listing.destroy
     flash[:delete] = "Successfully deleted!"
