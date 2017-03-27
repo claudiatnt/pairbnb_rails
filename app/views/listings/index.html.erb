@@ -6,6 +6,10 @@
       <td> <%= l.title%> </td>
       <td> <%= l.address %> </td>
       <td> <%= l.pax %> </td>
+      <td> <% l.photos.each do |photo| %>
+           <%= image_tag photo.medium, class: "img-response" %>
+           <% end %>
+      </td>
       <!-- to find the current_user and then the listing id, current_user is auto defined in rails -->
       <td> <%= link_to "Edit", edit_user_listing_path(current_user, l.id) %> </td>
       <!-- to make it to the method delete, data is to have the pop out box with the message -->
@@ -13,6 +17,5 @@
     </tr>
   <% end %>
 </table>
-
 
 <p>Listing#index</p>

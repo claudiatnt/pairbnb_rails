@@ -35,6 +35,7 @@ class ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id]) # find the users/user_id/listings/:id
     @listing.user = current_user
+
     if @listing.update(listing_params) # strong params, user can only key in the params require so hackers cannot hack
       flash[:success] = "Successfully updated your listing"
       redirect_to @listing # redirect to controller show to show the new listing
@@ -44,15 +45,16 @@ class ListingsController < ApplicationController
     end
   end
 
-  def destroy
+  def delete
     @listing = Listing.find(params[:id]) # find the users/user_id/listings/:id
     @listing.destroy
+    flash[:delete] = "Successfully deleted!"
     redirect_to user_listings_path
   end
 
 # strong params to prevent hacker hack into your system
 private
   def listing_params
-    params.require(:listing).permit(:title, :address, :pax)
+    params.require(:listing).permit(:title, :address, :pax, {photos: []})
   end
 end

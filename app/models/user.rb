@@ -2,6 +2,9 @@ class User < ApplicationRecord
   include Clearance::User
   has_many :listings, :dependent => :destroy # need to add in listings as you add in the listings table to have a user_id in the listing's table
   has_many :authentications, :dependent => :destroy
+  mount_uploader :photo, PhotoUploader
+  # serialize :photo, Array
+  paginates_per 10
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
       # byebug

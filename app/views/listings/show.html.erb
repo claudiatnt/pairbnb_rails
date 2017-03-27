@@ -2,6 +2,11 @@
 <p> Title: <%= @listing.title %> </p>
 <p> Address: <%= @listing.address %> </p>
 <p> Pax: <%= @listing.pax %> </p>
+<p>
+  Photos: <% @listing.photos.each do |photo| %>
+          <%= image_tag photo.medium, class: "img-response" %>
+          <% end %>
+</p>
 
 <p>Listing#show</p>
 <p>Find me in app/views/listing/show.html.erb</p>

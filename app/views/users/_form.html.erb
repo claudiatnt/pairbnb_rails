@@ -3,7 +3,7 @@
   <%= form.text_field :firstname, type: 'text' %>
 </div>
 
-<div class="text_field">
+<div class="text-field">
   <%= form.label :lastname %>
   <%= form.text_field :lastname, type: 'text' %>
 </div>
@@ -16,4 +16,9 @@
 <div class="password-field">
   <%= form.label :password %>
   <%= form.password_field :password %>
+</div>
+
+<div class="file-field">
+  <%= form.label :photo %>
+  <%= form.file_field :photo %>
 </div>
