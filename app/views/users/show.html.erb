@@ -5,6 +5,10 @@
 
 <p> Username : <%= @user.firstname %> <%= @user.lastname %> </p>
 <p> My Email : <%= @user.email %> </p>
+<p> My Photo : <%= form_for @user do |f| %>
+               <%= image_tag @user.photo.medium %>
+               <% end %>
+</p>
 
 <br>
 <br>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @user = User.all
+    @user = User.all.page params[:page]
   end
 
   def show
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user = current_user
+    # byebug
     if @user.update(user_params)
       flash[:success] = "Successfully updated your profile"
       redirect_to @user
@@ -23,7 +24,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    byebug
     @user = User.find(params[:id])
     @user.destroy
     redirect_to root_path
@@ -31,6 +33,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:firstname, :lastname, :email, :password, {photos: []})
+      params.require(:user).permit(:firstname, :lastname, :email, :password, :photo)
     end
 end
