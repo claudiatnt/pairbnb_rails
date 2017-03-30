@@ -9,6 +9,8 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id]) # find the users/user_id/listings/:id and show in show.html.erb
+    @reservation = Reservation.new
+    # cause render form in the listing/show page, need to know what @reservation is sp define it here
   end
 
   def new

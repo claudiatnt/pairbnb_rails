@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
+//= require_tree .
+
+// all this by default already installed, no need to uncomment it, leave it as it is

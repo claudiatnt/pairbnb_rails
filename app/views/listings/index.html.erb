@@ -1,19 +1,30 @@
-<h1> My Listings </h1>
+<h1> Listings </h1>
 
-<table>
+<table class="table">
+  <tr>
+    <th>Listing</th>
+    <th>Address</th>
+    <th>Pax</th>
+    <th>Photos</th>
+    <th></th>
+    <th></th>
+  </tr>
   <% @listings.each do |l| %>
     <tr>
-      <td> <%= l.title%> </td>
+      <td> <%= link_to l.title, listing_path(l.id) %> </td>
       <td> <%= l.address %> </td>
       <td> <%= l.pax %> </td>
       <td> <% l.photos.each do |photo| %>
            <%= image_tag photo.medium, class: "img-response" %>
            <% end %>
       </td>
+      <!-- one way to make chewbacca and yodamaster admin -->
+      <% if current_user.email == "chewbacca@email.com" || "yodamaster@email.com" %>
       <!-- to find the current_user and then the listing id, current_user is auto defined in rails -->
       <td> <%= link_to "Edit", edit_user_listing_path(current_user, l.id) %> </td>
       <!-- to make it to the method delete, data is to have the pop out box with the message -->
       <td> <%= link_to "Delete", user_listing_path(current_user, l.id), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+      <% end %>
     </tr>
   <% end %>
 </table>
