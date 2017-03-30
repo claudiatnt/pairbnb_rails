@@ -1,0 +1,32 @@
+<h3> Reservation for your next stay! </h3>
+
+<%= form_for [@listing,@reservation] do |form| %>
+<p>
+  <div>
+    <%= form.label "Start Date: " %>
+      <%= form.text_field :date_start, class:"datepicker", placeholder: "YYYY/MM/DD" %>
+  </div>
+
+  <div>
+    <%= form.label "End Date: " %>
+    <%= form.text_field :date_end, class:"datepicker", placeholder: "YYYY/MM/DD" %>
+  </div>
+
+  <div>
+    <%= form.label "Number of Guest: " %>
+    <%= form.text_field :guest %>
+    <!-- need to put listing_id because they don't know which listing_id this reservation belongs to -->
+  </div>
+</p>
+
+<p>
+  <%= form.submit "Book!" %>
+</p>
+
+<% end %>
+
+<script>
+  $( document ).ready(function() {
+    $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
+  });
+</script>

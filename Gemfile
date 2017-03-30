@@ -30,6 +30,9 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'kaminari'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap-datepicker-rails'
+gem 'fog'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

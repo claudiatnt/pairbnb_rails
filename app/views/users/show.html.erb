@@ -1,7 +1,8 @@
 <h1> My Profile </h1>
 
 <%= link_to "My Listing", user_listings_path(current_user) %>
-<%= link_to "Edit", edit_user_path(current_user) %>
+<%= link_to "My Reservation", user_reservations_path(current_user) %>
+<%= link_to "Edit Profile", edit_user_path(current_user) %>
 
 <p> Username : <%= @user.firstname %> <%= @user.lastname %> </p>
 <p> My Email : <%= @user.email %> </p>
@@ -13,5 +14,5 @@
 <br>
 <br>
 
-<p>Users#show</p>
-<p>Find me in app/views/users/show.html.erb</p>
+<!-- <p>Users#show</p>
+<p>Find me in app/views/users/show.html.erb</p> -->

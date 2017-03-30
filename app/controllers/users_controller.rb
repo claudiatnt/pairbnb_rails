@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Clearance::UsersController
   def index
     @user = User.all.page params[:page]
   end
@@ -25,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    byebug
     @user = User.find(params[:id])
     @user.destroy
     redirect_to root_path
