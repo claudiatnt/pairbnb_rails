@@ -37,8 +37,8 @@ class ReservationsController < ApplicationController
     # if put self, will always comapare it with the existing reserved date
     # a = Date.strptime(params[:reservation][:date_start], '%Y/%m/%d') # newly filled in date_start
     # b = Date.strptime(params[:reservation][:date_end], '%Y/%m/%d') # newly filled in date_end
-    x = params[:reservation][:date_start].to_date
-    y = params[:reservation][:date_end].to_date
+    x = params[:reservation][:date_start].to_date # .to_date is to change the date format
+    y = params[:reservation][:date_end].to_date # .to_date is to change the date format
 
     if @reservation.check_overlapping_for_edit?(x,y) == false
       @reservation.update(reservation_params) # strong params, user can only key in the params require so hackers cannot hack

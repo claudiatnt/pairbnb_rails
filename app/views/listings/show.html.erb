@@ -1,7 +1,16 @@
 <h2>This is your newly created listing</h2>
 <p> Title: <%= @listing.title %> </p>
 <p> Address: <%= @listing.address %> </p>
+<p> State: <%= @listing.state %> </p>
+<p> City: <%= @listing.city %> </p>
+<p> Zipcode: <%= @listing.zipcode %> </p>
+<p> Country: <%= @listing.country %> </p>
 <p> Pax: <%= @listing.pax %> </p>
+<p> Bed Number: <%= @listing.bed_number %> </p>
+<p> Room Number: <%= @listing.room_number %> </p>
+<p> Property Type: <%= @listing.property_type %> </p>
+<p> Description: <%= @listing.description %> </p>
+<p> Price: <%= @listing.price %> </p>
 <p>
   Photos: <% @listing.photos.each do |photo| %>
           <%= image_tag photo.medium, class: "img-response" %>
