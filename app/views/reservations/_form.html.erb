@@ -4,12 +4,13 @@
 <p>
   <div>
     <%= form.label "Start Date: " %>
-      <%= form.text_field :date_start, class:"datepicker", placeholder: "YYYY/MM/DD" %>
+      <%= form.text_field :date_start, class:"datepicker", placeholder: "YYYY/MM/DD", autocomplete: "off" %>
+      <!-- autocomplete: "off" means to turn off the autocomplete in the form -->
   </div>
 
   <div>
     <%= form.label "End Date: " %>
-    <%= form.text_field :date_end, class:"datepicker", placeholder: "YYYY/MM/DD" %>
+    <%= form.text_field :date_end, class:"datepicker", placeholder: "YYYY/MM/DD", autocomplete: "off" %>
   </div>
 
   <div>
@@ -24,9 +25,3 @@
 </p>
 
 <% end %>
-
-<script>
-  $( document ).ready(function() {
-    $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
-  });
-</script>

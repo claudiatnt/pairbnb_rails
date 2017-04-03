@@ -4,8 +4,17 @@
   <tr>
     <th>Listing</th>
     <th>Address</th>
-    <th>Pax</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Zipcode</th>
+    <th>Country</th>
     <th>Photos</th>
+    <th>Pax</th>
+    <th>Bed Number</th>
+    <th>Room Number</th>
+    <th>Property Type</th>
+    <th>Description</th>
+    <th>Price</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,10 +22,19 @@
     <tr>
       <td> <%= link_to l.title, listing_path(l.id) %> </td>
       <td> <%= l.address %> </td>
-      <td> <%= l.pax %> </td>
+      <td> <%= l.state %> </td>
+      <td> <%= l.city %> </td>
+      <td> <%= l.zipcode %> </td>
+      <td> <%= l.country %> </td>
       <td> <% l.photos.each do |photo| %>
            <%= image_tag photo.medium, class: "img-response" %>
            <% end %>
+      <td> <%= l.pax %> </td>
+      <td> <%= l.bed_number %> </td>
+      <td> <%= l.room_number %> </td>
+      <td> <%= l.property_type %> </td>
+      <td> <%= l.description %> </td>
+      <td> <%= l.price %> </td>
       </td>
       <!-- one way to make chewbacca and yodamaster admin -->
       <% if current_user.email == "chewbacca@email.com" || "yodamaster@email.com" %>

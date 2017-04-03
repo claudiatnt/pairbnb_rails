@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'braintree/new'
+  # get 'reservations/:id/braintree/new' => "braintree#new", as: :new_braintree
+  post 'braintree/checkout'
+  get 'welcome/index'
+
   root "welcome#index"
   # get '/' => "welcome#index", as: 'root'
 

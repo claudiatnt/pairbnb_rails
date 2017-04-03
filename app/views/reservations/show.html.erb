@@ -3,5 +3,8 @@
 <p> End Date: <%= @reservation.date_end %> </p>
 <p> Guest Number: <%= @reservation.guest %> </p>
 
+<!-- need to use link_to to go to the payment page -->
+<%= link_to ("Make Payment"),  braintree_new_path(:id => @reservation.id), method: :get %>
+
 <p>Reservations#show</p>
 <p>Find me in app/views/reservations/show.html.erb</p>

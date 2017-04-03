@@ -33,6 +33,7 @@ gem 'kaminari'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap-datepicker-rails'
 gem 'fog'
+gem 'braintree'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

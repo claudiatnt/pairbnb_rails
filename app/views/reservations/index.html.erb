@@ -8,6 +8,8 @@
     <th>Number of guest</th>
     <th></th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <% @reservations.each do |r| %>
     <tr>
@@ -15,8 +17,10 @@
       <td> <%= r.date_start%> </td>
       <td> <%= r.date_end %> </td>
       <td> <%= r.guest %> </td>
+      <td> <%= r.listing.price %> </td>
       <td> <%= link_to "Edit", edit_reservation_path(r) %> </td>
       <td> <%= link_to "Delete", reservation_path(r), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+      <td> <%= link_to "Make Payment", braintree_new_path(r) %> </td>
     </tr>
   <% end %>
 </table>

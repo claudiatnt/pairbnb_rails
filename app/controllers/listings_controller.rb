@@ -37,7 +37,6 @@ class ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id]) # find the users/user_id/listings/:id
     @listing.user = current_user
-
     if @listing.update(listing_params) # strong params, user can only key in the params require so hackers cannot hack
       flash[:success] = "Successfully updated your listing"
       redirect_to @listing # redirect to controller show to show the new listing
@@ -57,6 +56,6 @@ class ListingsController < ApplicationController
 # strong params to prevent hacker hack into your system
 private
   def listing_params
-    params.require(:listing).permit(:title, :address, :pax, {photos: []})
+    params.require(:listing).permit(:title, :address, :pax, {photos: []}, :state, :city, :zipcode, :country, :bed_number, :room_number, :property_type, :description, :price)
   end
 end
