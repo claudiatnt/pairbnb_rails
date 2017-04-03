@@ -15,6 +15,8 @@ class ReservationsController < ApplicationController
     if @reservation.check_overlapping_date == false
       @reservation.save
       flash[:reserve] = "Thank you for your reservation!"
+      ReservationMailer.booking_email_to_customer(current_user, User.find(@reservation.listing.user_id), @reservation.id).deliver_now # this is to send confirmation email to customer after they have made a booking.
+      ReservationMailer.booking_email_to_host(current_user, User.find(@reservation.listing.user_id), @reservation.id).deliver_now # this is to send notification email to the host for whoever customers who have made any bookings on their listing.
       redirect_to @reservation # redirect_to 'show' page
     else
       flash[:error] = "Error, the dates you choose is not available"
