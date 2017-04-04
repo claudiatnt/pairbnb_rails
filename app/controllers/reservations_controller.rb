@@ -15,8 +15,15 @@ class ReservationsController < ApplicationController
     if @reservation.check_overlapping_date == false
       @reservation.save
       flash[:reserve] = "Thank you for your reservation!"
-      ReservationMailer.booking_email_to_customer(current_user, User.find(@reservation.listing.user_id), @reservation.id).deliver_now # this is to send confirmation email to customer after they have made a booking.
-      ReservationMailer.booking_email_to_host(current_user, User.find(@reservation.listing.user_id), @reservation.id).deliver_now # this is to send notification email to the host for whoever customers who have made any bookings on their listing.
+
+      # the two below are for Action Mailer to send email to customers (at app/jobs/reservation_job.rb)
+      # deliver_later will put the email delivery job queqe to sidekiq and deliver later, while continue the page without having to wait email sent then only load to next page.
+      ReservationMailer.booking_email_to_customer(current_user.id, @reservation.listing.user_id, @reservation.id).deliver_later # this is to send confirmation email to customer after they have made a booking.
+      ReservationMailer.booking_email_to_host(current_user.id, @reservation.listing.user_id, @reservation.id).deliver_later # this is to send notification email to the host for whoever customers who have made any bookings on their listing.
+
+      # below this is for Active Jobs to send email or in future any other jobs to customers that act as a background job to send email asynchronously
+      # ReservationJob.perform_later(current_user.id, @reservation.listing.user_id, @reservation.id)
+
       redirect_to @reservation # redirect_to 'show' page
     else
       flash[:error] = "Error, the dates you choose is not available"
