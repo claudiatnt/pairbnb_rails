@@ -34,6 +34,8 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap-datepicker-rails'
 gem 'fog'
 gem 'braintree'
+gem 'letter_opener', :group => :development
+gem 'sidekiq'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
